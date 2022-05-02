@@ -1,5 +1,8 @@
 "use strict";
 
+const memeContainer = document.querySelector(".memeContainer");
+const memeButton = document.querySelector(".generate");
+
 // https://meme-api.herokuapp.com/gimme //API endpoint
 
 //XHR request
