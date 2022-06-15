@@ -1,11 +1,15 @@
 "use strict";
 
 const memeContainer = document.querySelector(".memeContainer");
-const memeButton = document.querySelector(".generate");
+const memeButton = document.getElementById("button");
+
+const clearElement = function () {
+  memeContainer.innerHTML = "";
+};
 
 // https://meme-api.herokuapp.com/gimme //API endpoint
 
-//XHR request
+// // XHR request
 // const XHR = new XMLHttpRequest();
 
 // XHR.onload = function () {
@@ -19,21 +23,19 @@ const memeButton = document.querySelector(".generate");
 // XHR.open("GET", "https://meme-api.herokuapp.com/gimme", true);
 // XHR.send();
 
-//fetch request + async/await
-const fetchMEME = async () => {
-  try {
-    const response = await fetch("https://meme-api.herokuapp.com/gimme");
-    const data = await response.json();
-    // console.log(data.url);
-    return data.url;
-  } catch (error) {
-    alert("Failed to Fetch 😭", error);
-  }
-};
+// fetch request + async/await
+// const fetchMEME = async () => {
+//   try {
+//     const response = await fetch("https://random.dog/woof.json");
+//     const data = await response.json();
+//     console.log(data.url);
+//     return data.url;
+//   } catch (error) {
+//     alert("Failed to Fetch 😭", error);
+//   }
+// };
 
-fetchMEME();
-
-//Axios request
+// Axios request
 // const axiosGET = axios
 //   .get("https://meme-api.herokuapp.com/gimme")
 //   .then((response) => {
@@ -43,3 +45,17 @@ fetchMEME();
 //   .catch((error) => {
 //     alert("API Failed 😢", error);
 //   });
+
+const renderedMeme = function (res) {
+  memeContainer.insertAdjacentHTML(
+    "beforeend",
+    `<h3>${res.data.title}</h3> <img src="${res.data.url}" alt="img" />`
+  );
+};
+
+memeButton.addEventListener("click", function () {
+  clearElement();
+  axios
+    .get("https://meme-api.herokuapp.com/gimme")
+    .then((res) => renderedMeme(res));
+});

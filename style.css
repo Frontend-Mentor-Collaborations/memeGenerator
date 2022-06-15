@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+main {
+  margin: 3rem auto;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+button {
+  margin: 1rem auto;
+  width: 10rem;
+  height: 2.8rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+img {
+  max-width: 40rem;
+  max-height: 40rem;
+  border: 0.5rem solid black;
+}
+
+.memeContainer {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
