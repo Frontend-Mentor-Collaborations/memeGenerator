@@ -1,11 +1,15 @@
 "use strict";
 
+const darkMode = document.querySelector("#darkMode");
+const html = document.querySelector("html");
 const memeContainer = document.querySelector(".memeContainer");
 const memeButton = document.getElementById("button");
 
 const clearElement = function () {
   memeContainer.innerHTML = "";
 };
+
+let darkModeState = false;
 
 // https://meme-api.herokuapp.com/gimme //API endpoint
 
@@ -59,3 +63,19 @@ memeButton.addEventListener("click", function () {
     .get("https://meme-api.herokuapp.com/gimme")
     .then((res) => renderedMeme(res));
 });
+
+// Dark Mode Implementation
+const toggleMode = () => {
+  darkModeState = !darkModeState;
+  switchTheme();
+};
+
+const switchTheme = () => {
+  if (darkModeState) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+};
+
+darkMode.addEventListener("click", toggleMode);
