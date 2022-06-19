@@ -15,9 +15,18 @@
     <script defer src="app.js"></script>
     <title>Meme Generator</title>
   </head>
-  <body>
-    <main>
+  <body class="body">
+    <main class="main">
       <section>
+        <div class="svg" id="darkMode">
+          <img class="toggle svg__toggle-moon" src="img/moon.svg" alt="moon" />
+          <img
+            id="hide"
+            class="toggle svg__toggle-sun"
+            src="img/sun.svg"
+            alt="sun"
+          />
+        </div>
         <h1>😂Sweet Memes😂</h1>
         <button id="button">Give Meme</button>
         <div class="memeContainer"></div>

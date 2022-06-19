@@ -1,9 +1,14 @@
 "use strict";
 
-const darkMode = document.querySelector("#darkMode");
-const html = document.querySelector("html");
 const memeContainer = document.querySelector(".memeContainer");
 const memeButton = document.getElementById("button");
+const darkMode = document.querySelector("#darkMode");
+const toggle = document.querySelector(".toggle");
+const svg = document.querySelector(".svg");
+const sun = document.querySelector(".svg__toggle-sun");
+const moon = document.querySelector(".svg__toggle-moon");
+const hide = document.querySelector("#hide");
+const body = document.querySelector(".body");
 
 const clearElement = function () {
   memeContainer.innerHTML = "";
@@ -50,10 +55,11 @@ let darkModeState = false;
 //     alert("API Failed 😢", error);
 //   });
 
+// API
 const renderedMeme = function (res) {
   memeContainer.insertAdjacentHTML(
     "beforeend",
-    `<h3>${res.data.title}</h3> <img src="${res.data.url}" alt="img" />`
+    `<h3>${res.data.title}</h3> <img id="content" src="${res.data.url}" alt="img" />`
   );
 };
 
@@ -72,10 +78,23 @@ const toggleMode = () => {
 
 const switchTheme = () => {
   if (darkModeState) {
-    document.documentElement.classList.add("dark");
+    document.body.classList.add("dark");
   } else {
-    document.documentElement.classList.remove("dark");
+    document.body.classList.remove("dark");
   }
 };
 
 darkMode.addEventListener("click", toggleMode);
+
+// Sun/Moon Toggle
+svg.addEventListener("click", function () {
+  if (sun.contains(hide)) {
+    sun.removeAttribute("id");
+    moon.setAttribute("id", "hide");
+  } else if (moon.contains(hide)) {
+    moon.removeAttribute("id");
+    sun.setAttribute("id", "hide");
+  } else {
+    return;
+  }
+});
