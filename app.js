@@ -5,9 +5,9 @@ const memeButton = document.getElementById("button");
 const darkMode = document.querySelector("#darkMode");
 const toggle = document.querySelector(".toggle");
 const svg = document.querySelector(".svg");
-const sun = document.querySelector(".svg__toggle-sun");
-const moon = document.querySelector(".svg__toggle-moon");
-const hide = document.querySelector("#hide");
+const sun = document.querySelector(".svg__img-sun");
+const moon = document.querySelector(".svg__img-moon");
+const hide = document.querySelector(".hide");
 const body = document.querySelector(".body");
 
 const clearElement = function () {
@@ -88,12 +88,12 @@ darkMode.addEventListener("click", toggleMode);
 
 // Sun/Moon Toggle
 svg.addEventListener("click", function () {
-  if (sun.contains(hide)) {
-    sun.removeAttribute("id");
-    moon.setAttribute("id", "hide");
-  } else if (moon.contains(hide)) {
-    moon.removeAttribute("id");
-    sun.setAttribute("id", "hide");
+  if (sun.classList.contains("hide")) {
+    sun.classList.remove("hide");
+    moon.classList.add("hide");
+  } else if (moon.classList.contains("hide")) {
+    moon.classList.remove("hide");
+    sun.classList.add("hide");
   } else {
     return;
   }

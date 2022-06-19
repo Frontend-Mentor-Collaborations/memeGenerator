@@ -18,6 +18,11 @@ main {
 
 h1 {
   font-size: 3rem;
+  color: rgba(2, 17, 221, 0.733);
+}
+
+h3 {
+  color: rgba(2, 17, 221, 0.733);
 }
 
 button {
@@ -47,10 +52,10 @@ button {
 }
 
 .dark {
-  background-color: rgb(75, 75, 75);
+  background-color: rgba(70, 70, 70, 0.822);
 }
 
-.toggle {
+#imgToggle {
   width: 4rem;
 }
 
@@ -59,6 +64,6 @@ button {
   display: inline-block;
 }
 
-#hide {
+.hide {
   display: none;
 }
