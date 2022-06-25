@@ -16,7 +16,7 @@ main {
   font-family: "Ubuntu", sans-serif;
 }
 
-h1 {
+h1.dark {
   font-size: 3rem;
   color: rgba(2, 17, 221, 0.733);
 }
@@ -53,6 +53,7 @@ button {
 
 .dark {
   background-color: rgba(70, 70, 70, 0.822);
+  transition: background-color 0.8s ease-out
 }
 
 #imgToggle {
